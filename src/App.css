@@ -1,0 +1,11 @@
+.form-privateKey {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.enviar-msg {
+  display: flex;
+  gap: 10px;
+}
