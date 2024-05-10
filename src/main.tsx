@@ -34,7 +34,6 @@ const GlobalTheme = createTheme({
           },
           input: {
             color: "#1C4260",
-            borderColor: "#ffffff",
           },
           ":focus-within": {
             input: {

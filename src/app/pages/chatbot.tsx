@@ -37,7 +37,7 @@ function chatbot() {
 
   return (
     <>
-      <Card sx={{ width: "100%" }}>
+      <Card sx={{ minWidth: "100%" }}>
         <Typography textAlign={"center"} variant="h4">Chat</Typography>
         <Grid container display={"flex"} flexDirection={"column"} >
           <Grid item sm={12} sx={{ border: "1px solid white", padding: "3px" }}>
@@ -58,6 +58,8 @@ function chatbot() {
               <TextField
                 fullWidth
                 placeholder="Escreva uma mensagem aqui"
+                multiline
+                maxRows={4}
                 sx={{ width: '100%' }}
               >
               </TextField>

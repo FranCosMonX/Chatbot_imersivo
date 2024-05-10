@@ -1,14 +1,17 @@
+import { ChatSession } from '@google/generative-ai';
 import { Button, Card, Container, Grid, TextField, Typography } from '@mui/material';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import './App.css';
+import criarConexao from './app/conexao';
 import Chatbot from "./app/pages/chatbot";
 
 function App() {
-  const [chavePresente, setChavePresent] = useState(false)
-  const [key, setKey] = useState("")
+  const [chavePresente, setChavePresent] = useState(false);
+  const [key, setKey] = useState("");
+  const [conexao, setConexao] = useState<Promise<ChatSession>>();
   const [inputError, setInputError] = useState<{ msg: string, visivel: boolean }>({
     msg: '', visivel: false
-  })
+  });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -21,6 +24,8 @@ function App() {
 
     setChavePresent(true)
     console.log("A chave é " + key)
+    const conectado = criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" })
+    console.log(conectado)
   }
 
   return (
