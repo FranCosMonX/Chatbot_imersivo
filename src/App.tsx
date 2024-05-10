@@ -8,12 +8,12 @@ import Chatbot from "./app/pages/chatbot";
 function App() {
   const [chavePresente, setChavePresent] = useState(false);
   const [key, setKey] = useState("");
-  const [conexao, setConexao] = useState<Promise<ChatSession>>();
+  const [conexao, setConexao] = useState<ChatSession>();
   const [inputError, setInputError] = useState<{ msg: string, visivel: boolean }>({
     msg: '', visivel: false
   });
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (key == "" || key == undefined) {
@@ -22,10 +22,17 @@ function App() {
       return;
     }
 
-    setChavePresent(true)
-    console.log("A chave é " + key)
-    const conectado = criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" })
-    console.log(conectado)
+    try {
+      const conectado = await criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" })
+      setChavePresent(true)
+      setConexao(conectado)
+      console.log(conectado)
+
+    } catch (error) {
+      if (!inputError.visivel) setInputError({ msg: "Houve algum erro nas credenciais", visivel: true })
+      else setInputError({ ...inputError, msg: "Houve algum erro nas credenciais" })
+    }
+
   }
 
   return (
@@ -53,8 +60,8 @@ function App() {
             </Grid>
           </Card>
         }
-        {chavePresente &&
-          <Chatbot />
+        {chavePresente && conexao != undefined &&
+          <Chatbot conexao={conexao} />
         }
       </Container>
     </>

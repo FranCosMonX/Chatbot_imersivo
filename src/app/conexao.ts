@@ -1,14 +1,23 @@
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 
+/**
+ * chave: chave da API
+ * tipo_chat: pré definido
+ */
 interface ConexaoParams {
   chave: string;
   tipo_chat: string;
 }
 
-const criarConexao = async ({ chave, tipo_chat }: ConexaoParams) => {
+/**
+ * 
+ * @param {chave} chave de acesso a API
+ * @returns 
+ */
+const criarConexao = ({ chave, tipo_chat }: ConexaoParams) => {
 
   const genAI = new GoogleGenerativeAI(chave);
-  const model = await genAI.getGenerativeModel({ model: tipo_chat });
+  const model = genAI.getGenerativeModel({ model: tipo_chat });
 
   //ser bem criativo
   const generationConfig = {
@@ -42,12 +51,8 @@ const criarConexao = async ({ chave, tipo_chat }: ConexaoParams) => {
     safetySettings,
     history: [],
   });
-  const result = await chat.sendMessage("me diga algo");
-  const response = result.response;
-  console.log(response.text());
 
   return chat
-
 }
 
 export default criarConexao; 

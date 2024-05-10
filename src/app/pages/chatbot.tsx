@@ -1,3 +1,4 @@
+import { ChatSession } from "@google/generative-ai";
 import { Button, Card, Grid, List, ListItem, TextField, Typography } from "@mui/material";
 import { FormEvent, useState } from "react";
 
@@ -6,33 +7,23 @@ interface Mensagem {
   msg: string;
 }
 
-function chatbot() {
+interface Init {
+  conexao: ChatSession;
+}
+
+function chatbot({ conexao }: Init) {
   const [historico, setHistorico] = useState<Mensagem[]>()
   const [message, setMessage] = useState("")
 
   const handleteste = () => {
-    const objet = [
-      { id: 1, msg: "muito bom" },
-      { id: 2, msg: "okay" },
-      { id: 3, msg: "fala bem construida" },
-      { id: 4, msg: "muito bom" },
-      { id: 5, msg: "okay" },
-      { id: 6, msg: "fala bem construida" },
-      { id: 7, msg: "muito bom" },
-      { id: 8, msg: "okay, abrobrinhas de mais já não pprestam muito. " },
-      { id: 9, msg: "fala bem construida" },
-      { id: 10, msg: "muito bom" },
-      { id: 11, msg: "okay" },
-      { id: 12, msg: "fala bem construida" },
-      { id: 12, msg: "okay, abrobrinhas de mais " },
-      { id: 12, msg: 'Nada de mais,\n\n\raswarning' }
-    ]
-    setHistorico(objet)
+
   }
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    handleteste()
+
+    const resultado = await conexao.sendMessage("quanto é 2 + 5?")
+    console.log(resultado.response.text())
   }
 
   return (
