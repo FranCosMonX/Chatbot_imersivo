@@ -22,8 +22,6 @@ const criarConexao = ({ chave, tipo_chat }: ConexaoParams) => {
   //ser bem criativo
   const generationConfig = {
     temperature: 1,
-    topK: 0,
-    topP: 0.95,
     maxOutputTokens: 8192,
   };
 
