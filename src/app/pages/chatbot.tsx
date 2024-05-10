@@ -27,39 +27,39 @@ function chatbot({ conexao }: Init) {
   }
 
   return (
-    <>
-      <Card sx={{ minWidth: "100%" }}>
-        <Typography textAlign={"center"} variant="h4">Chat</Typography>
-        <Grid container display={"flex"} flexDirection={"column"} >
-          <Grid item sm={12} sx={{ border: "1px solid white", padding: "3px" }}>
-            <List
-              sx={{ overflow: "auto", maxHeight: '200px' }}
-            >
-              {historico?.map((historico) => {
-                return (
-                  <ListItem key={historico.id}>
-                    <Typography width={"100%"} sx={{ borderBottom: "1px solid white" }}>{historico.msg}</Typography>
-                  </ListItem>
-                )
-              })}
-            </List>
-          </Grid>
-          <Grid item sx={{ marginTop: "10px" }}>
-            <form className="enviar-msg" onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                placeholder="Escreva uma mensagem aqui"
-                multiline
-                maxRows={4}
-                sx={{ width: '100%' }}
-              >
-              </TextField>
-              <Button type="submit">Enviar</Button>
-            </form>
-          </Grid>
+    <Card sx={{ width: "100%" }}>
+      <Typography textAlign={"center"} variant="h4">Chat</Typography>
+      <Grid container display={"flex"} flexDirection={"column"} >
+        <Grid item sm={12} sx={{ border: "1px solid white", padding: "3px" }}>
+          <List
+            sx={{ overflow: "auto", maxHeight: '200px' }}
+          >
+            {historico?.map((historico) => {
+              return (
+                <ListItem key={historico.id}>
+                  <Typography width={"100%"} sx={{ borderBottom: "1px solid white" }}>{historico.msg}</Typography>
+                </ListItem>
+              )
+            })}
+          </List>
         </Grid>
-      </Card>
-    </>
+        <Grid item sx={{ marginTop: "10px" }}>
+          <form className="enviar-msg" onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              label="Começe ou continue o diálogo"
+              placeholder="Escreva uma mensagem aqui"
+              multiline
+              variant="filled"
+              maxRows={4}
+              sx={{ width: '400px' }}
+            >
+            </TextField>
+            <Button type="submit">Enviar</Button>
+          </form>
+        </Grid>
+      </Grid>
+    </Card>
   )
 
 }

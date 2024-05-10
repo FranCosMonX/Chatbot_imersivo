@@ -36,35 +36,33 @@ function App() {
   }
 
   return (
-    <>
-      <Container maxWidth={"sm"} style={{ width: '100%' }}>
-        {!chavePresente &&
-          <Card >
-            <Typography variant='h4' textAlign={'center'} marginBottom={1}>Informações necessárias</Typography>
-            <Grid container item sm={12} xs={12} >
-              <form onSubmit={handleSubmit} className='form-privateKey'>
-                <TextField
-                  fullWidth
-                  label='Informe a chave de acesso do Germini'
-                  name='chave'
-                  type='text'
-                  variant='filled'
-                  placeholder='escreva aqui'
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => { setKey(e.target.value) }}
-                  value={key}
-                  helperText={inputError.msg}
-                  error={inputError.visivel}
-                />
-                <Button fullWidth type='submit'>Confirmar</Button>
-              </form>
-            </Grid>
-          </Card>
-        }
-        {chavePresente && conexao != undefined &&
-          <Chatbot conexao={conexao} />
-        }
-      </Container>
-    </>
+    <Container maxWidth={"md"}>
+      {!chavePresente &&
+        <Card sx={{ width: "100%" }}>
+          <Typography variant='h4' textAlign={'center'} marginBottom={1}>Informações necessárias</Typography>
+          <Grid container item sm={12} xs={12} >
+            <form onSubmit={handleSubmit} className='form-privateKey'>
+              <TextField
+                fullWidth
+                label='Informe a chave de acesso do Germini'
+                name='chave'
+                type='text'
+                variant='filled'
+                placeholder='escreva aqui'
+                onChange={(e: ChangeEvent<HTMLInputElement>) => { setKey(e.target.value) }}
+                value={key}
+                helperText={inputError.msg}
+                error={inputError.visivel}
+              />
+              <Button fullWidth type='submit'>Confirmar</Button>
+            </form>
+          </Grid>
+        </Card>
+      }
+      {chavePresente && conexao != undefined &&
+        <Chatbot conexao={conexao} />
+      }
+    </Container>
   )
 
 }

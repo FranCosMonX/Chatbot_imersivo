@@ -28,7 +28,7 @@ const GlobalTheme = createTheme({
         root: {
           padding: "2px",
           backgroundColor: "#0f153f",
-          maxWidth: "100%",
+          width: "100%",
           label: {
             color: "#ffffff",
           },
