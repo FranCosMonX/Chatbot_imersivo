@@ -1,6 +1,7 @@
 import { ChatSession } from "@google/generative-ai";
-import { Button, Card, Grid, List, ListItem, TextField, TextareaAutosize, Typography } from "@mui/material";
+import { Button, Card, Grid, List, ListItem, TextField, Typography } from "@mui/material";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import aprimorando_sintaxe from "../../utils/sintaxe/texto";
 
 interface Mensagem {
   id: number;
@@ -76,7 +77,9 @@ function chatbot({ conexao }: Init) {
               {historico?.map((historico) => {
                 return (
                   <ListItem key={historico.id}>
-                    <TextareaAutosize value={historico.msg + "\n asdsad"} />
+                    <Typography variant="body2">
+                      {aprimorando_sintaxe({ text: historico.msg })}
+                    </Typography>
                   </ListItem>
                 )
               })}
