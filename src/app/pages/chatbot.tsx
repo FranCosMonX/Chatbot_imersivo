@@ -68,7 +68,7 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
               {historico?.map((historico) => {
                 return (
                   <ListItem key={historico.id}>
-                    <Box>
+                    <Box sx={{ textAlign: 'justify', paddingBottom: '5px', borderBottom: '1px groove #1C4260' }}>
                       {aprimorando_sintaxe({ text: historico.msg })}
                     </Box>
                   </ListItem>
