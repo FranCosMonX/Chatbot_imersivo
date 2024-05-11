@@ -44,6 +44,8 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 
 Agora, com a chave de acesso em "mãos", use no único campo para acessar a aplicação. Note que é um campo obrigatório e que a chave deve ser válida. Caso dê algum erro na comunicação com o servidor, a interface deve mostrar.
 
+> versão do germini pré definida: `gemini-1.0-pro`
+
 ### Limitações
 
 Há muitas funcionalidades que não foram implementadas, dentre elas:
