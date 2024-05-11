@@ -25,19 +25,19 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 2. ir em "Get API key" localizado no canto superior esquerdo, como ilustado na imagemabaixo;
 
 <div align="center">
-    <img src="./imgs/localizacaoBtnAPIKey.png" alt="localização da funcionalidade para obter a chave de acesso a API" />
+    <img src="./midia/imgs/localizacaoBtnAPIKey.png" alt="localização da funcionalidade para obter a chave de acesso a API" />
 </div>
 
 3. Clique em "Create API Key", como ilustrado na imagem;
 
 <div align="center">
-  <img src="./imgs/criarChaveDaAPiLocalBtn.png" alt="criando uma chave de acesso para a API do Germini" />
+  <img src="./midia/imgs/criarChaveDaAPiLocalBtn.png" alt="criando uma chave de acesso para a API do Germini" />
 </div>
 
 4. Clique no campo de busca e selecione o "Generative Language Client", como ilustrado na imagem;
 
 <div align="center">
-  <img src="./imgs/ultimoPassoParaGerarAPIKey.png" alt="Gerar uma chave de acesso" />
+  <img src="./midia/imgs/ultimoPassoParaGerarAPIKey.png" alt="Gerar uma chave de acesso" />
 </div>
 
 5. Copie a chave de acesso e a use para acessar a API da AI Germini.
@@ -45,6 +45,8 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 Agora, com a chave de acesso em "mãos", use no único campo para acessar a aplicação. Note que é um campo obrigatório e que a chave deve ser válida. Caso dê algum erro na comunicação com o servidor, a interface deve mostrar.
 
 > versão do germini pré definida: `gemini-1.0-pro`
+
+[Demonstração simples](./midia/videos/exemplo%20de%20uso_chatbot_imersivo.mp4)
 
 ### Limitações
 
