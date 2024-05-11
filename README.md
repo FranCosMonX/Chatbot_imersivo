@@ -25,7 +25,7 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 2. ir em "Get API key" localizado no canto superior esquerdo, como ilustado na imagemabaixo;
 
 <div align="center">
-    ![localização da funcionalidade para obter a chave de acesso a API](./imgs/localizacaoBtnAPIKey.png)
+    <img src="./imgs/localizacaoBtnAPIKey.png"> </img>
 </div>
 
 3. Clique em "Create API Key", como ilustrado na imagem;
