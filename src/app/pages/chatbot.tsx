@@ -86,8 +86,9 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
               variant="filled"
               type="text"
               maxRows={4}
+              value={message}
               onChange={(e: ChangeEvent<HTMLInputElement>) => { setMessage(e.target.value) }}
-              sx={{ width: '100%' }}
+              sx={{ width: '100%', color: "white" }}
             />
             <Button type="submit" sx={{ width: "200px" }}>Enviar</Button>
           </form>

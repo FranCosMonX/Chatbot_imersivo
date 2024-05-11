@@ -35,6 +35,7 @@ function App() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const msg_erro_de_acesso = "Houve algum erro nas credenciais ou no serviço do Germini"
 
     if (key == "" || key == undefined) {
       if (!inputError.visivel) setInputError({ msg: "Campo obrigatório", visivel: true })
@@ -49,13 +50,13 @@ function App() {
         setChavePresent(true)
       }).catch((error) => {
         console.log(error)
-        if (!inputError.visivel) setInputError({ msg: "Houve algum erro nas credenciais", visivel: true })
-        else setInputError({ ...inputError, msg: "Houve algum erro nas credenciais" })
+        if (!inputError.visivel) setInputError({ msg: msg_erro_de_acesso, visivel: true })
+        else setInputError({ ...inputError, msg: msg_erro_de_acesso })
       })
     }).catch((error) => {
       console.log(error)
-      if (!inputError.visivel) setInputError({ msg: "Houve algum erro nas credenciais", visivel: true })
-      else setInputError({ ...inputError, msg: "Houve algum erro nas credenciais" })
+      if (!inputError.visivel) setInputError({ msg: msg_erro_de_acesso, visivel: true })
+      else setInputError({ ...inputError, msg: msg_erro_de_acesso })
     })
 
   }

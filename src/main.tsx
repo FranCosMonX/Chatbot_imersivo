@@ -28,17 +28,19 @@ const GlobalTheme = createTheme({
         root: {
           padding: "2px",
           backgroundColor: "#0f153f",
-          width: "100%",
+          width: "100%"
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          color: "#1C4260",
           label: {
             color: "#ffffff",
           },
-          input: {
-            color: "#1C4260",
-          },
           ":focus-within": {
-            input: {
-              color: "#ffffff",
-            }
+            color: "#ffffff",
           }
         }
       }
@@ -53,7 +55,7 @@ const GlobalTheme = createTheme({
           textWrap: "wrap"
         },
       },
-    },
+    }
   }
 })
 
