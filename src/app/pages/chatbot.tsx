@@ -18,6 +18,9 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
   const [message, setMessage] = useState("");
   const [saudacao, setSaudacao] = useState(false)
   const [emProcessamento, setEmProcessamento] = useState(false)
+  const [error, setError] = useState<{ msg: string, visivel: boolean }>({
+    msg: '', visivel: false
+  })
 
   useEffect(() => {
     const resultado = async () => {
@@ -29,7 +32,6 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
           const msg: Mensagem = { id: historico.length, msg: saudacaoTxt }
           setHistorico([...historico, msg])
         }
-        console.log(saudacaoTxt)
       }
     }
 
@@ -40,16 +42,15 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
     e.preventDefault(); setEmProcessamento(true);
 
     await conexao.sendMessage(message).then((result) => {
-      console.log(result.response.text())
       if (historico == null || historico == undefined) {
         setHistorico([{ id: 0, msg: result.response.text() }])
       } else {
         const msg: Mensagem = { id: historico.length, msg: result.response.text() }
         setHistorico([...historico, msg])
       }
-      console.log(result)
-    }).catch((error) => {
-      console.log(error)
+      setError({ ...error, visivel: false })
+    }).catch(() => {
+      setError({ msg: 'Aconteceu algum erro inesperado na comunicação com o Germini', visivel: true })
     })
     setEmProcessamento(false)
   }
@@ -89,6 +90,8 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
               maxRows={4}
               value={message}
               onChange={(e: ChangeEvent<HTMLInputElement>) => { setMessage(e.target.value) }}
+              error={error.visivel}
+              helperText={error.msg}
               sx={{ width: '100%', color: "white" }}
             />
             {

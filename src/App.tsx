@@ -47,7 +47,6 @@ function App() {
     }
 
     await criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" }).then(async (conexao) => {
-      console.log(conexao)
       await handleTesteConexao(conexao).then(() => {
         setConexao(conexao)
         setChavePresent(true)
