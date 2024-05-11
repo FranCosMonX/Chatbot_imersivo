@@ -25,13 +25,13 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 2. ir em "Get API key" localizado no canto superior esquerdo, como ilustado na imagemabaixo;
 
 <div align="center">
-    <img src="./imgs/localizacaoBtnAPIKey.png"> </img>
+    <img src="./imgs/localizacaoBtnAPIKey.png" alt="localização da funcionalidade para obter a chave de acesso a API" />
 </div>
 
 3. Clique em "Create API Key", como ilustrado na imagem;
 
 <div align="center">
-    ![criando uma chave de acesso para a API do Germini](./imgs/criarChaveDaAPiLocalBtn.png)
+  <img src="./imgs/criarChaveDaAPiLocalBtn.png" alt="criando uma chave de acesso para a API do Germini" />
 </div>
 
 4. Clique no campo de busca e selecione o "Generative Language Client", como ilustrado na imagem;
