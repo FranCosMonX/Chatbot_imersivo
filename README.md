@@ -53,7 +53,7 @@ Há muitas funcionalidades que não foram implementadas, dentre elas:
 2. Não tem a funcionalidade para começar um novo chat, pois o objetivo é fazer o usuário se manter em apenas um para uma busca mais aprofundada sobre o assunto;
 3. Não tem a funcionalidade para voltar à página de autenticação (página inicial). Para fazer isto, precisa usar o botão "reload" do navegador.
 
-# Tratamentos efetuados
+### Tratamentos efetuados
 
 Alguns tratamentos são necessários em qualquer aplicação para algum usuário, além de adicionais. São eles:
 1. Tratamento de campos de preenchimento;
@@ -62,7 +62,7 @@ Alguns tratamentos são necessários em qualquer aplicação para algum usuário
 
 ## Referências
 
-Imersão da Alura Cursos 2ª edição com assunto voltado em Inteligência Artificial.
+Imersão da Alura Cursos + Google com assunto voltado em Inteligência Artificial.
 
 * [Alura Cursos](https://www.alura.com.br/)
 * [Germini AI Google](https://ai.google.dev/)
