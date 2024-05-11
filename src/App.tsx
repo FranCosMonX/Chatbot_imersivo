@@ -26,7 +26,7 @@ function App() {
       const conectado = await criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" })
       setChavePresent(true)
       setConexao(conectado)
-      console.log(conectado)
+      console.log(conectado.ok)
 
     } catch (error) {
       if (!inputError.visivel) setInputError({ msg: "Houve algum erro nas credenciais", visivel: true })

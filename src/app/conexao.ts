@@ -14,10 +14,10 @@ interface ConexaoParams {
  * @param {chave} chave de acesso a API
  * @returns 
  */
-const criarConexao = ({ chave, tipo_chat }: ConexaoParams) => {
+const criarConexao = async ({ chave, tipo_chat }: ConexaoParams) => {
 
   const genAI = new GoogleGenerativeAI(chave);
-  const model = genAI.getGenerativeModel({ model: tipo_chat });
+  const model = await genAI.getGenerativeModel({ model: tipo_chat });
 
   //ser bem criativo
   const generationConfig = {
