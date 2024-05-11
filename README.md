@@ -24,15 +24,21 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 1. Acessar o site do [Google AI Studio](https://aistudio.google.com/app/prompts/new_chat/?utm_source=website&utm_medium=referral&utm_campaign=Alura&utm_content=)
 2. ir em "Get API key" localizado no canto superior esquerdo, como ilustado na imagemabaixo;
 
-  ![localização da funcionalidade para obter a chave de acesso a API](./imgs/localizacaoBtnAPIKey.png)
+<div align="center">
+    ![localização da funcionalidade para obter a chave de acesso a API](./imgs/localizacaoBtnAPIKey.png)
+</div>
 
 3. Clique em "Create API Key", como ilustrado na imagem;
 
-  ![criando uma chave de acesso para a API do Germini](./imgs/criarChaveDaAPiLocalBtn.png)
+<div align="center">
+    ![criando uma chave de acesso para a API do Germini](./imgs/criarChaveDaAPiLocalBtn.png)
+</div>
 
 4. Clique no campo de busca e selecione o "Generative Language Client", como ilustrado na imagem;
 
-  ![Gerar uma chave de acesso](./imgs/ultimoPassoParaGerarAPIKey.png)
+<div align="center">
+    ![Gerar uma chave de acesso](./imgs/ultimoPassoParaGerarAPIKey.png)
+</div>
 
 5. Copie a chave de acesso e a use para acessar a API da AI Germini.
 
