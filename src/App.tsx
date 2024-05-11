@@ -22,16 +22,15 @@ function App() {
       return;
     }
 
-    try {
-      const conectado = await criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" })
+    await criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" }).then((funcionou) => {
+      console.log(funcionou)
       setChavePresent(true)
-      setConexao(conectado)
-      console.log(conectado.ok)
-
-    } catch (error) {
+      setConexao(funcionou)
+    }).catch((error) => {
+      console.log(error)
       if (!inputError.visivel) setInputError({ msg: "Houve algum erro nas credenciais", visivel: true })
       else setInputError({ ...inputError, msg: "Houve algum erro nas credenciais" })
-    }
+    })
 
   }
 
