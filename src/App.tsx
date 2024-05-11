@@ -2,7 +2,7 @@ import { ChatSession } from '@google/generative-ai';
 import { Button, Card, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import './App.css';
-import criarConexao from './app/conexao';
+import criarConexao from './app/api/conexao';
 import Chatbot from "./app/pages/chatbot";
 
 const reestricao = `
