@@ -10,23 +10,10 @@ interface Mensagem {
 
 interface Init {
   conexao: ChatSession;
+  saudacaoTxt: string;
 }
 
-const reestricao = `
-Neste chat, só responda perguntas ou assuntos vinculados a oceanos, rios e natureza.
-- Caso alguém lhe peça para fazer códigos de programação (de qualquer linguagem), apenas detalhe o passo a passo de como fazer, mas não escreva nenhuma linha de código;
-exemplo:
-    - pergunta: me forneça um código em python para imprimir um texto falando de oceano.
-    - resposta: tenha certeza de ter uma IDE instalada, em seguida insira o codigo basico que imprime objetos
-- Você só pode gerar conteúdo textual com entrada de texto apenas, pois as demais funcionalidades não foram implementadas;
-- O nome dessa aplicação é Chat imersivo;
-- Tenha uma conversa continua.
-- quando for dar uma resposta, primeiro analise ela novamente e veja se adequa aos requisitos informados.
-
-Agora escreva uma saudação;
-`
-
-function chatbot({ conexao }: Init) {
+function chatbot({ conexao, saudacaoTxt }: Init) {
   const [historico, setHistorico] = useState<Mensagem[]>();
   const [message, setMessage] = useState("");
   const [saudacao, setSaudacao] = useState(false)
@@ -35,14 +22,13 @@ function chatbot({ conexao }: Init) {
     const resultado = async () => {
       if (!saudacao) {
         setSaudacao(true);
-        const resultado = await conexao.sendMessage(reestricao)
         if (historico == null || historico == undefined) {
-          setHistorico([{ id: 0, msg: resultado.response.text() }])
+          setHistorico([{ id: 0, msg: saudacaoTxt }])
         } else {
-          const msg: Mensagem = { id: historico.length, msg: resultado.response.text() }
+          const msg: Mensagem = { id: historico.length, msg: saudacaoTxt }
           setHistorico([...historico, msg])
         }
-        console.log(resultado.response.text())
+        console.log(saudacaoTxt)
       }
     }
 
