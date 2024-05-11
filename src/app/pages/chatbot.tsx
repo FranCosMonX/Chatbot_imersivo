@@ -39,7 +39,7 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
   })
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); setEmProcessamento(true);
+    e.preventDefault(); setEmProcessamento(true); setMessage("");
 
     await conexao.sendMessage(message).then((result) => {
       if (historico == null || historico == undefined) {
