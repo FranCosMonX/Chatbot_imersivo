@@ -10,6 +10,10 @@ Explore o mundo natural com nosso chatbot imersivo, desenvolvido com o Google Ge
 * Projeto React criado por meio do vite.
 * Para rodar o projeto, abra o prompt de comando e digite `pnpm dev` ou `pnpm run` com o gerenciador de pacotes já instalado e configurado
 
+_
+O gerenciado de pacotes `pnpm` geralmente roda a aplicação na porta 5173: [http://localhost:5173/]( http://localhost:5173/)
+_
+
 ### Dependências
 
 * Google generativeAI: `pnpm install @google/generative-ai`
@@ -22,15 +26,15 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 1. Acessar o site do [Google AI Studio](https://aistudio.google.com/app/prompts/new_chat/?utm_source=website&utm_medium=referral&utm_campaign=Alura&utm_content=)
 2. ir em "Get API key" localizado no canto superior esquerdo, como ilustado na imagemabaixo;
 
-[localização da funcionalidade para obter a chave de acesso a API](./imgs/localizacaoBtnAPIKey.png)
+![localização da funcionalidade para obter a chave de acesso a API](./imgs/localizacaoBtnAPIKey.png)
 
 3. Clique em "Create API Key", como ilustrado na imagem;
 
-[criando uma chave de acesso para a API do Germini](./imgs/criarChaveDaAPiLocalBtn.png)
+![criando uma chave de acesso para a API do Germini](./imgs/criarChaveDaAPiLocalBtn.png)
 
 4. Clique no campo de busca e selecione o "Generative Language Client", como ilustrado na imagem;
 
-[Gerar uma chave de acesso](./imgs/ultimoPassoParaGerarAPIKey.png)
+![Gerar uma chave de acesso](./imgs/ultimoPassoParaGerarAPIKey.png)
 
 5. Copie a chave de acesso e a use para acessar a API da AI Germini.
 
