@@ -37,7 +37,7 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 4. Clique no campo de busca e selecione o "Generative Language Client", como ilustrado na imagem;
 
 <div align="center">
-    ![Gerar uma chave de acesso](./imgs/ultimoPassoParaGerarAPIKey.png)
+  <img src="./imgs/ultimoPassoParaGerarAPIKey.png" alt="Gerar uma chave de acesso" />
 </div>
 
 5. Copie a chave de acesso e a use para acessar a API da AI Germini.
