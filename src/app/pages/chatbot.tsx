@@ -38,15 +38,19 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const resultado = await conexao.sendMessage(message)
-    console.log(resultado.response.text())
-    if (historico == null || historico == undefined) {
-      setHistorico([{ id: 0, msg: resultado.response.text() }])
-    } else {
-      const msg: Mensagem = { id: historico.length, msg: resultado.response.text() }
-      setHistorico([...historico, msg])
-    }
-    console.log(resultado)
+    await conexao.sendMessage(message).then((result) => {
+      console.log(result.response.text())
+      if (historico == null || historico == undefined) {
+        setHistorico([{ id: 0, msg: result.response.text() }])
+      } else {
+        const msg: Mensagem = { id: historico.length, msg: result.response.text() }
+        setHistorico([...historico, msg])
+      }
+      console.log(result)
+    }).catch((error) => {
+      console.log(error)
+    })
+
   }
 
   return (
