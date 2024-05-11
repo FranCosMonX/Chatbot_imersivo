@@ -1,5 +1,5 @@
 import { ChatSession } from "@google/generative-ai";
-import { Box, Button, Card, Grid, List, ListItem, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CircularProgress, Grid, List, ListItem, TextField, Typography } from "@mui/material";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import aprimorando_sintaxe from "../../utils/sintaxe/texto";
 
@@ -17,6 +17,7 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
   const [historico, setHistorico] = useState<Mensagem[]>();
   const [message, setMessage] = useState("");
   const [saudacao, setSaudacao] = useState(false)
+  const [emProcessamento, setEmProcessamento] = useState(false)
 
   useEffect(() => {
     const resultado = async () => {
@@ -36,7 +37,7 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
   })
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault(); setEmProcessamento(true);
 
     await conexao.sendMessage(message).then((result) => {
       console.log(result.response.text())
@@ -50,7 +51,7 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
     }).catch((error) => {
       console.log(error)
     })
-
+    setEmProcessamento(false)
   }
 
   return (
@@ -90,7 +91,10 @@ function chatbot({ conexao, saudacaoTxt }: Init) {
               onChange={(e: ChangeEvent<HTMLInputElement>) => { setMessage(e.target.value) }}
               sx={{ width: '100%', color: "white" }}
             />
-            <Button type="submit" sx={{ width: "200px" }}>Enviar</Button>
+            {
+              emProcessamento && <CircularProgress color="primary" sx={{ margin: "auto" }} /> ||
+              !emProcessamento && <Button type="submit" sx={{ width: "200px" }}>Enviar</Button>
+            }
           </form>
         </Grid>
       </Grid>

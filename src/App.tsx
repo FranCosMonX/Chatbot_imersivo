@@ -1,5 +1,5 @@
 import { ChatSession } from '@google/generative-ai';
-import { Button, Card, Container, Grid, TextField, Typography } from '@mui/material';
+import { Button, Card, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import './App.css';
 import criarConexao from './app/conexao';
@@ -26,6 +26,7 @@ function App() {
     msg: '', visivel: false
   });
   const [saudacao, setSaudacao] = useState("")
+  const [emProcessamento, setEmProcessamento] = useState(false)
 
   const handleTesteConexao = async (e: ChatSession) => {
     await e.sendMessage(reestricao).then((result) => {
@@ -34,13 +35,15 @@ function App() {
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     const msg_erro_de_acesso = "Houve algum erro nas credenciais ou no serviço do Germini"
 
     if (key == "" || key == undefined) {
       if (!inputError.visivel) setInputError({ msg: "Campo obrigatório", visivel: true })
       else setInputError({ ...inputError, msg: "Campo obrigatório" })
       return;
+    } else {
+      setEmProcessamento(true);
     }
 
     await criarConexao({ chave: key, tipo_chat: "gemini-1.0-pro" }).then(async (conexao) => {
@@ -48,17 +51,15 @@ function App() {
       await handleTesteConexao(conexao).then(() => {
         setConexao(conexao)
         setChavePresent(true)
-      }).catch((error) => {
-        console.log(error)
+      }).catch(() => {
         if (!inputError.visivel) setInputError({ msg: msg_erro_de_acesso, visivel: true })
         else setInputError({ ...inputError, msg: msg_erro_de_acesso })
       })
-    }).catch((error) => {
-      console.log(error)
+    }).catch(() => {
       if (!inputError.visivel) setInputError({ msg: msg_erro_de_acesso, visivel: true })
       else setInputError({ ...inputError, msg: msg_erro_de_acesso })
     })
-
+    setEmProcessamento(false);
   }
 
   return (
@@ -80,7 +81,10 @@ function App() {
                 helperText={inputError.msg}
                 error={inputError.visivel}
               />
-              <Button fullWidth type='submit'>Confirmar</Button>
+              {
+                emProcessamento && <CircularProgress color="primary" sx={{ margin: "auto" }} /> ||
+                !emProcessamento && <Button fullWidth type='submit'>Confirmar</Button>
+              }
             </form>
           </Grid>
         </Card>
