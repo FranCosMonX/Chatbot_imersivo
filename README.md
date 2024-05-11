@@ -34,6 +34,22 @@ Para usar a aplicação, tenha em mãos a chave da API do germini. Para consegui
 
 5. Copie a chave de acesso e a use para acessar a API da AI Germini.
 
+Agora, com a chave de acesso em "mãos", use no único campo para acessar a aplicação. Note que é um campo obrigatório e que a chave deve ser válida. Caso dê algum erro na comunicação com o servidor, a interface deve mostrar.
+
+### Limitações
+
+Há muitas funcionalidades que não foram implementadas, dentre elas:
+1. Não recebe arquivos, imagens, videos ou audios;
+2. Não tem a funcionalidade para começar um novo chat, pois o objetivo é fazer o usuário se manter em apenas um para uma busca mais aprofundada sobre o assunto;
+3. Não tem a funcionalidade para voltar à página de autenticação (página inicial). Para fazer isto, precisa usar o botão "reload" do navegador.
+
+# Tratamentos efetuados
+
+Alguns tratamentos são necessários em qualquer aplicação para algum usuário, além de adicionais. São eles:
+1. Tratamento de campos de preenchimento;
+2. Informar que a aplicação está esperando a resposta de outros serviços independentes da aplicação front-end;
+3. Impedir que o usuário mande mais de um comando, travando a aplicação ou gerando bugs não previstos.
+
 ## Referências
 
 Imersão da Alura Cursos 2ª edição com assunto voltado em Inteligência Artificial.
